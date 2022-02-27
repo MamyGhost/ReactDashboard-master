@@ -105,16 +105,19 @@ export default class Team extends React.Component {
 					  })
 				   .then((res)=>res.json())
 				   .then((res)=>{
-					 console.log(res)
+					 if(!res.ok){
+						console.log(res.message);
+						throw Error(res.message);
+					 }
 					 this.setState({dataRecherche: res})
 				   }).catch((error) => {
-					console.log(error.response.data.message); 
+					console.log(error.message); 
 					//alert(error.response.data.message);
 					//this.state.erreur=error;
 					this.setState({type:''});
 					this.setState({daty:''});
 					this.setState({statut: ''});
-					this.setState({erreur: "error.response.data.message"});
+					this.setState({erreur: error.message});
 					//window.location.href="/";
 					}
 				);

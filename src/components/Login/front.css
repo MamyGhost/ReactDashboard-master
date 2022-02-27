@@ -65,6 +65,10 @@ input,button{
     font-size: 1.12rem;
 }
 
+.btt{
+    margin-top: -10%;
+}
+
 
 .input-group{
     grid-column: span 1;

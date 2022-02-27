@@ -16,10 +16,11 @@ class UserLogin extends React.Component{
         username:'',
         password:'',
         region:'',
-        erreur:''
+        erreur:'',
+        listeregion: []
     };
-   
-    
+    this.getallregion();
+
   }
 
  renderError(){
@@ -130,6 +131,34 @@ class UserLogin extends React.Component{
         this.setState({region : event.target.value});
       }
 
+
+      getallregion(){
+        fetch('http://localhost:8080/region')
+        .then((res)=>res.json())
+        .then((res)=>{
+          let reg = res;
+          this.setState({listeregion : reg});
+          console.log(reg);
+        })
+
+      }
+
+      getaffichageliste(){
+        let reg = this.state.listeregion;
+        return (
+          <select className="input-text" value={this.state.region} onChange={this.handleChange.bind(this)}>        
+          {reg.map((value, index) => {
+              return <option value={value.id}>{value.nom}</option>
+            })}    
+        </select>
+        )
+      }
+
+      handleChange(e) {
+        console.log("Region Selected!!:"+ e.target.value);
+        this.setState({ region: e.target.value });
+      }
+
     render(){
 		return(
 		   
@@ -145,12 +174,13 @@ class UserLogin extends React.Component{
 		                <label className="input-label">Password</label>
 		                <input type="password" name="password" className="input-text" placeholder="Your password"  onChange={this.handleChangemdp.bind(this)}  value={this.state.password} />
 		            </div>
-		            <div className="input-group span-2">
+		            <div >
 		                <label className="input-label">Region</label>
-		                <input type="number" name="region" className="input-text" placeholder="Region"  onChange={this.handleChangeregion.bind(this)}  value={this.state.region}/>
+                    <div>
+                    {this.getaffichageliste()}
+                    </div>
 		            </div>
-		            <div className="input-group span-2">
-		               
+		            <div className="input-group span-2 btt">
                     <button onClick={this.valider.bind(this) } className="input-button">Se connecter</button>
 		            </div>
 		        
