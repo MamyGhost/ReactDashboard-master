@@ -33,9 +33,7 @@ const RightNavbar = () => {
 
       {/* ACTIONS */}
       <div className={styles.actions}>
-        <Search />
-        <Notifications />
-        <Support />
+        
       </div>
 
       {/* My Profile */}
