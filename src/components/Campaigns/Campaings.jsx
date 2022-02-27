@@ -6,13 +6,14 @@ import L from "leaflet";
 // import 'node_modules/leaflet/dist/leaflet.css';
 import '../../../node_modules/leaflet/dist/leaflet.css'
 import { Link } from 'react-router-dom';
-// import './acc.css';
+import './zesta1.css';
 import image1 from '../Campaigns/red.png';
 import image2 from '../Campaigns/blue.png';
 import image3 from '../Campaigns/orange.png';
 import image4 from '../Campaigns/yellow.png';
 import image5 from '../Campaigns/black.png';
 import image6 from '../Campaigns/green.png';
+import image from '../../pics/accident.jpg'
 
 export default class Compaings extends React.Component {
 
@@ -20,11 +21,40 @@ export default class Compaings extends React.Component {
 		super();
 		this.state={
 		   dataType: [],
-		   dataSignalement: []
+		   dataSignalement: [],
+		   dataDetails: []
 		  
 		};
 	   
 	  }
+
+	  closePopUp(){
+		this.setState({animation_name: 'animate-out'});
+		this.setState({depth:'above'});
+		 this.setState({fade:'fade-out'});
+	  }
+	  openPopUp(description){
+		this.setState({animation_name: 'animate-in'});
+		this.setState({depth:'below'});
+		this.setState({fade:'fade-in'});
+		this.setState({description:description});
+		this.getDetails(description);
+		// this.getDetails2(description);
+		// alert("http://localhost:8090/wb/userfront/signalement/description?description="+description+"&idregion=1");
+	  }
+	  getDetails(description){
+		const region=localStorage.getItem('idregion');
+		const token=localStorage.getItem('token');
+		fetch('http://localhost:8090/wb/userfront/signalement/description?description='+description+'&idregion='+region+'', {
+			headers:{
+			  "Authorization": "Bearer "+token}
+			 })
+		  .then((res)=>res.json())
+		  .then((res)=>{
+			console.log(res)
+			this.setState({dataDetails: res})
+		})
+	}
 
     getListeType()
 	{
@@ -33,7 +63,7 @@ export default class Compaings extends React.Component {
   const headers={
 	'Authorization': 'Bearer '+token
   };
-	  fetch('http://localhost:8080/wb/userfront/listetype', {headers})
+	  fetch('http://localhost:8090/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -50,7 +80,7 @@ export default class Compaings extends React.Component {
 		const headers={
 			'Authorization': 'Bearer '+token
 		  };
-	  fetch('http://localhost:8080/wb/userfront/region/'+token+'/signalement', {headers})
+	  fetch('http://localhost:8090/wb/userfront/region/'+token+'/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -77,7 +107,40 @@ export default class Compaings extends React.Component {
   
 	
 render(){  
-	
+	const projects1 = this.state.dataDetails.map((projects1) =>{
+		return (
+			<div className="popUpModal">
+            
+            <section id="pop-up" className={this.state.animation_name}>
+              <div id="innerPopUp" className={this.state.fade}>
+                <div className="border-overlay">
+                  <div className="white"></div>
+                  <div className="black"></div>
+                </div>
+                <div className="text">
+                  <h1 className="titre">{projects1.description} </h1>
+                  <hr/>
+                  <p className="close" onClick={this.closePopUp.bind(this)}>X</p>
+                  <ul>
+				  <li key={projects1.statut.etat} className="liste">Statut : <em>{projects1.statut.etat}</em></li>
+				  <li key={projects1.region.nom} className="liste">Région : <em>{projects1.region.nom}</em></li>
+				  <li key={projects1.type.nom} className="liste">Type de signalement: <em>{projects1.type.nom}</em></li>
+				  <li key={projects1.daty} className="liste">Date du signalement: <em>{projects1.daty}</em></li>
+				  <li key={projects1.latitude} className="liste">Localisation : <em>{projects1.latitude}</em> / <em>{projects1.longitude}</em></li>
+				  </ul>
+				
+                
+			
+                </div>
+                <div className="photo">
+                  <img src={image} width="600px;" height="365px;"/>
+                </div>
+              </div>
+            </section>
+          </div>
+		);
+		
+		});
       <div className={styles.title}>
         <h1>Carte d'indication</h1>
         <WiStars />
@@ -120,7 +183,7 @@ render(){
 	>
      
 	  <Popup> <div>
-	   			<h1>{projects2.description}</h1>
+				<button className="openement" id={this.state.depth} onClick={this.openPopUp.bind(this,projects2.description)}><h1>{projects2.description}</h1></button>
                 <h3>Coordonnée : { projects2.latitude} , {projects2.longitude}</h3>
                 <h3>Date du publication :{projects2.daty}</h3>
                 <h3>Status :{projects2.statut.etat}</h3>
@@ -179,6 +242,7 @@ render(){
         /> */}
             </div>
           </div>
+		  {projects1}
   </article>
   </div>
   );
