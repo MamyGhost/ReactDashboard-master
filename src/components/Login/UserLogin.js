@@ -46,12 +46,12 @@ class UserLogin extends React.Component{
 
              
 
-    axios.post('http://localhost:8090/wb/userfront/login',donnee)
+    axios.post('http://localhost:8080/wb/userfront/login',donnee)
     .then(res => {
         // this.setState({username: res.data})
         
         console.log(res.headers.authorization);
-        console.log(res.data);
+        console.log("id region :"+res.data);
         //console.log(res.config.data.region.id);
         localStorage.setItem('token',res.headers.authorization.split("Bearer ")[1]);
         localStorage.setItem('idregion',res.data);
@@ -102,7 +102,7 @@ class UserLogin extends React.Component{
   //           }
   //           console.log(JSON.stringify(donnee));
 
-  //          axios.post('http://localhost:8090/wb/userfront/login',donnee)
+  //          axios.post('http://localhost:8080/wb/userfront/login',donnee)
   //          .then(res => res.json())
   //            .then(res=>console.log(res))
   //            .catch(error => {

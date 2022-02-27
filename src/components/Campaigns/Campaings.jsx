@@ -33,7 +33,7 @@ export default class Compaings extends React.Component {
   const headers={
 	'Authorization': 'Bearer '+token
   };
-	  fetch('http://localhost:8090/wb/userfront/listetype', {headers})
+	  fetch('http://localhost:8080/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -50,7 +50,7 @@ export default class Compaings extends React.Component {
 		const headers={
 			'Authorization': 'Bearer '+token
 		  };
-	  fetch('http://localhost:8090/wb/userfront/region/'+token+'/signalement', {headers})
+	  fetch('http://localhost:8080/wb/userfront/region/'+token+'/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)

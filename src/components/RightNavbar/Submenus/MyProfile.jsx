@@ -25,7 +25,7 @@ export default function MyProfile() {
   //     const headers={
   //       'Authorization': 'Bearer '+token
   //       };
-  //     fetch('http://localhost:8090/wb/userfront/token/'+token, {headers,method: 'DELETE',})
+  //     fetch('http://localhost:8080/wb/userfront/token/'+token, {headers,method: 'DELETE',})
   //     .then((res)=>res.json())
   //     .then((res)=>{
   //     console.log(res)
@@ -41,7 +41,7 @@ export default function MyProfile() {
   //     console.log("huhu mandalo");
   //     const token=localStorage.getItem('token');
   //     //window.location.href="/";
-  //      alert("http://localhost:8090/wb/userfront/token/"+token+" ");
+  //      alert("http://localhost:8080/wb/userfront/token/"+token+" ");
   //     }
      
   
@@ -65,7 +65,7 @@ export default function MyProfile() {
 
       {/* NAME */}
       <div className={styles.name}>
-        <span>WebDesign</span>
+        <span>MadaSignal</span>
         <MdKeyboardArrowDown />
       </div>
 
@@ -74,7 +74,7 @@ export default function MyProfile() {
         className={`${styles.menu} ${isProfileOpen ? styles.menu_active : ""}`}
       >
         <div className={styles.info}>
-          <span className={styles.name}>WebDesign</span>
+          <span className={styles.name}>MadaSignal</span>
         </div>
         <div  >
           <button> Sign Out</button>
