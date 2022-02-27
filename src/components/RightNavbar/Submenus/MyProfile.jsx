@@ -83,7 +83,7 @@ export default function MyProfile() {
         className={`${styles.menu} ${isProfileOpen ? styles.menu_active : ""}`}
       >
         <div className={styles.info}>
-          <span className={styles.name}>WebDesign</span>
+          <span className={styles.name}>Madasignale</span>
         </div>
         <div  >
           <button onClick={test} className="logout"> Sign Out</button>
