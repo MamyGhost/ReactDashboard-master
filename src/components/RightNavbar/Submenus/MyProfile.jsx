@@ -21,6 +21,7 @@ export default function MyProfile() {
     const test = () =>{
     //alert("test delete");
     GetDelete();
+    localStorage.removeItem('token');
     window.location.href="/";
   }
 
@@ -31,12 +32,15 @@ export default function MyProfile() {
       const headers={
         'Authorization': 'Bearer '+token
         };
+        if(token!='' || token!= null ){
       fetch('http://localhost:8090/wb/userfront/token/'+token, {headers,method: 'DELETE',})
       .then((res)=>res.json())
       .then((res)=>{
       console.log(res)
       })    
-    
+    }else{
+      window.location.href="/";
+  }
   }
   //   useEffect(()=>{
   //     GetDelete()
@@ -70,7 +74,7 @@ export default function MyProfile() {
 
       {/* NAME */}
       <div className={styles.name}>
-        <span>WebDesign</span>
+        <span>MadaSignale</span>
         <MdKeyboardArrowDown />
       </div>
 
