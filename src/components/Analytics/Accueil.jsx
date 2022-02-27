@@ -18,6 +18,9 @@ export default class Accueil extends React.Component {
 		   dataSignalement: []
 		  
 		};
+		if(localStorage.getItem("token") == null){
+			window.location.href="/ogin";
+		   }
 	   
 	  }
 	//   faireRedirection=()=> {

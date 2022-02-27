@@ -20,7 +20,11 @@ export default class Team extends React.Component {
 			region: localStorage.getItem('idregion'),
 			erreur:''
 		};
-	   
+
+	   if(localStorage.getItem("token") == null){
+		window.location.href="/login";
+	   }
+
 	  }
 
 	getListeType()

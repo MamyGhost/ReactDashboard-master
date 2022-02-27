@@ -29,6 +29,9 @@ export default class Analytics extends React.Component {
 		   dataDetails: [],
 		   dataDetSignal: []
 		};
+		if(localStorage.getItem("token") == null){
+			window.location.href="/login";
+		   }
 	   
 	  }
 

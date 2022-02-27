@@ -6,14 +6,12 @@ import L from "leaflet";
 // import 'node_modules/leaflet/dist/leaflet.css';
 import '../../../node_modules/leaflet/dist/leaflet.css'
 import { Link } from 'react-router-dom';
-import './zesta1.css';
 import image1 from '../Campaigns/red.png';
 import image2 from '../Campaigns/blue.png';
 import image3 from '../Campaigns/orange.png';
 import image4 from '../Campaigns/yellow.png';
 import image5 from '../Campaigns/black.png';
 import image6 from '../Campaigns/green.png';
-import image from '../../pics/accident.jpg'
 
 export default class Compaings extends React.Component {
 
@@ -25,7 +23,9 @@ export default class Compaings extends React.Component {
 		   dataDetails: []
 		  
 		};
-	   
+	    if(localStorage.getItem("token") == null){
+			window.location.href="/login";
+		   }
 	  }
 
 	  closePopUp(){
@@ -40,12 +40,12 @@ export default class Compaings extends React.Component {
 		this.setState({description:description});
 		this.getDetails(description);
 		// this.getDetails2(description);
-		// alert("http://localhost:8090/wb/userfront/signalement/description?description="+description+"&idregion=1");
+		// alert("http://localhost:8080/wb/userfront/signalement/description?description="+description+"&idregion=1");
 	  }
 	  getDetails(description){
 		const region=localStorage.getItem('idregion');
 		const token=localStorage.getItem('token');
-		fetch('http://localhost:8090/wb/userfront/signalement/description?description='+description+'&idregion='+region+'', {
+		fetch('http://localhost:8080/wb/userfront/signalement/description?description='+description+'&idregion='+region+'', {
 			headers:{
 			  "Authorization": "Bearer "+token}
 			 })
@@ -63,7 +63,7 @@ export default class Compaings extends React.Component {
   const headers={
 	'Authorization': 'Bearer '+token
   };
-	  fetch('http://localhost:8090/wb/userfront/listetype', {headers})
+	  fetch('http://localhost:8080/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -80,7 +80,7 @@ export default class Compaings extends React.Component {
 		const headers={
 			'Authorization': 'Bearer '+token
 		  };
-	  fetch('http://localhost:8090/wb/userfront/region/'+token+'/signalement', {headers})
+	  fetch('http://localhost:8080/wb/userfront/region/'+token+'/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -133,7 +133,7 @@ render(){
 			
                 </div>
                 <div className="photo">
-                  <img src={image} width="600px;" height="365px;"/>
+                  <img src={image1} width="600px;" height="365px;"/>
                 </div>
               </div>
             </section>

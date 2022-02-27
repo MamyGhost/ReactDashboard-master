@@ -59,6 +59,7 @@ const LoginContainer = () => (
     <Routes>
     
       <Route exact path="/" element={<UserLogin/>}/>
+      <Route exact path="/login" element={<UserLogin/>}/>
       <Route path="/accueil/*" element={<Access />}/>
   
    
