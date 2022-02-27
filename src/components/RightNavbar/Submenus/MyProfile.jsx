@@ -10,7 +10,7 @@ import styles from "./MyProfile.module.scss";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ReactComponent as Avatar } from "../../../pics/avatar.svg";
 import { useEffect } from 'react';
-
+import './zesta.css';
 export default function MyProfile() {
   const [isProfileOpen, setisProfileOpen] = useState(false);
   let domNode = useClickOutside(() => {
@@ -18,21 +18,26 @@ export default function MyProfile() {
   
   });
 
-  //   const GetDelete = () => {
+    const test = () =>{
+    //alert("test delete");
+    GetDelete();
+    window.location.href="/";
+  }
+
+    const GetDelete = () => {
 		
-  //     //localStorage.setItem('token','ecd6fb15c1f249a6def3ca7ebcb785aea831d65d');
-  //     const token=localStorage.getItem('token');
-  //     const headers={
-  //       'Authorization': 'Bearer '+token
-  //       };
-  //     fetch('http://localhost:8080/wb/userfront/token/'+token, {headers,method: 'DELETE',})
-  //     .then((res)=>res.json())
-  //     .then((res)=>{
-  //     console.log(res)
-  //     })
-      
+      //localStorage.setItem('token','ecd6fb15c1f249a6def3ca7ebcb785aea831d65d');
+      const token=localStorage.getItem('token');
+      const headers={
+        'Authorization': 'Bearer '+token
+        };
+      fetch('http://localhost:8090/wb/userfront/token/'+token, {headers,method: 'DELETE',})
+      .then((res)=>res.json())
+      .then((res)=>{
+      console.log(res)
+      })    
     
-  //   }
+  }
   //   useEffect(()=>{
   //     GetDelete()
   //   },[]);
@@ -41,7 +46,7 @@ export default function MyProfile() {
   //     console.log("huhu mandalo");
   //     const token=localStorage.getItem('token');
   //     //window.location.href="/";
-  //      alert("http://localhost:8080/wb/userfront/token/"+token+" ");
+  //      alert("http://localhost:8090/wb/userfront/token/"+token+" ");
   //     }
      
   
@@ -65,7 +70,7 @@ export default function MyProfile() {
 
       {/* NAME */}
       <div className={styles.name}>
-        <span>MadaSignal</span>
+        <span>WebDesign</span>
         <MdKeyboardArrowDown />
       </div>
 
@@ -74,10 +79,10 @@ export default function MyProfile() {
         className={`${styles.menu} ${isProfileOpen ? styles.menu_active : ""}`}
       >
         <div className={styles.info}>
-          <span className={styles.name}>MadaSignal</span>
+          <span className={styles.name}>WebDesign</span>
         </div>
         <div  >
-          <button> Sign Out</button>
+          <button onClick={test} className="logout"> Sign Out</button>
         </div>
       </div>
     </div>
