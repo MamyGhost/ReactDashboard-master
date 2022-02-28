@@ -26,9 +26,7 @@ export default function Details() {
 			 })
 		  .then((res)=>res.json())
 		  .then((res)=>{
-			if(!res.ok){
-				window.location.href="/login";
-			 }
+			
 			  setDetails(res);
 		  })
 	}

@@ -34,9 +34,7 @@ export default function MyProfile() {
       fetch('http://projectsignalement.herokuapp.com/wb/userfront/token/'+token, {headers,method: 'DELETE',})
       .then((res)=>res.json())
       .then((res)=>{
-        if(!res.ok){
-          window.location.href="/login";
-         }
+       
       console.log(res)
       })    
     

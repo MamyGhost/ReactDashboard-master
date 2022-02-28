@@ -39,9 +39,7 @@ export default class Accueil extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
-		if(!res.ok){
-			window.location.href="/login";
-		 }
+		
 		console.log(res)
 	  this.setState({dataType: res})
 	  })
