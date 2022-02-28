@@ -54,7 +54,7 @@ export default class Analytics extends React.Component {
 	  updateData(description){
 		this.getUpdate(description);
 		console.log("huhu mandalo");
-		window.location.href="/accueil/analytics";
+		//window.location.href="/accueil/analytics";
 		 //alert("http://projectsignalement.herokuapp.com/wb/userfront/signalement/statut/"+description+"/1");
 	  }
 
@@ -162,6 +162,8 @@ export default class Analytics extends React.Component {
 	{
 		const region=localStorage.getItem('idregion');
 		//localStorage.setItem('token','ecd6fb15c1f249a6def3ca7ebcb785aea831d65d');
+		console.log("tonga update 1");
+
 		const token=localStorage.getItem('token');
 		const headers={
 			'Authorization': 'Bearer '+token
@@ -169,7 +171,7 @@ export default class Analytics extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/statut/'+description+'/'+region, {headers,method: 'PUT',})
 	  .then((res)=>res.json())
 	  .then((res)=>{
-		
+		console.log("tonga update");
 		console.log(res)
 	  this.setState({dataDetSignale: res})
 	  })
