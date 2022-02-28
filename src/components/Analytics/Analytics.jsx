@@ -266,7 +266,7 @@ render(){
 	
     <main>
       <div className={styles.title}>
-        <h1>Liste des signalements</h1>
+        <h1>Liste des signalements ggggggggggggggggg</h1>
         <WiStars />
       </div>
       <div>
