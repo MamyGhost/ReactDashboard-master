@@ -48,7 +48,7 @@ class UserLogin extends React.Component{
 
              
 
-    axios.post('http://localhost:8080/wb/userfront/login',donnee)
+    axios.post('http://projectsignalement.herokuapp.com/wb/userfront/login',donnee)
     .then(res => {
         // this.setState({username: res.data})
         
@@ -104,7 +104,7 @@ class UserLogin extends React.Component{
   //           }
   //           console.log(JSON.stringify(donnee));
 
-  //          axios.post('http://localhost:8080/wb/userfront/login',donnee)
+  //          axios.post('http://projectsignalement.herokuapp.com/wb/userfront/login',donnee)
   //          .then(res => res.json())
   //            .then(res=>console.log(res))
   //            .catch(error => {
@@ -133,7 +133,7 @@ class UserLogin extends React.Component{
 
 
       getallregion(){
-        fetch('http://localhost:8080/region')
+        fetch('http://projectsignalement.herokuapp.com/region')
         .then((res)=>res.json())
         .then((res)=>{
           let reg = res;

@@ -34,7 +34,7 @@ export default class Team extends React.Component {
   const headers={
 	'Authorization': 'Bearer '+token
   };
-	  fetch('http://localhost:8080/wb/userfront/listetype', {headers})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -51,7 +51,7 @@ export default class Team extends React.Component {
 		const headers={
 			'Authorization': 'Bearer '+token
 		  };
-	  fetch('http://localhost:8080/wb/userfront/region/'+token+'/signalement', {headers})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/region/'+token+'/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -99,7 +99,7 @@ export default class Team extends React.Component {
 				  //   'Authorization': 'Bearer 18718e6ffd280afe0bc33858644e5d36010fc215'
 				  // };
 				  const token=localStorage.getItem('token');
-				   fetch('http://localhost:8080/wb/userfront/signalement/recherche?type='+type+'&daty='+daty+'&statut='+statut+'&idregion='+region+'', {
+				   fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/recherche?type='+type+'&daty='+daty+'&statut='+statut+'&idregion='+region+'', {
 					 headers:{
 					   "Authorization": "Bearer "+token}
 					  })
@@ -142,7 +142,7 @@ export default class Team extends React.Component {
 	  
 					console.log(donnee); 
 	  
-		  axios.get('http://localhost:8080/wb/userfront/signalement/recherche', {
+		  axios.get('http://projectsignalement.herokuapp.com/wb/userfront/signalement/recherche', {
 			params:{
 			  type: this.state.type,
 					 daty: this.state.daty,
@@ -169,7 +169,7 @@ export default class Team extends React.Component {
 	const headers={
 	  'Authorization': 'Bearer '+token
 	};
-		fetch('http://localhost:8080/wb/userfront/listestatut', {headers})
+		fetch('http://projectsignalement.herokuapp.com/wb/userfront/listestatut', {headers})
 		.then((res)=>res.json())
 		.then((res)=>{
 		  console.log(res)

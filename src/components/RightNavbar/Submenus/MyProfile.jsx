@@ -31,7 +31,7 @@ export default function MyProfile() {
       const headers={
         'Authorization': 'Bearer '+token
         };
-      fetch('http://localhost:8080/wb/userfront/token/'+token, {headers,method: 'DELETE',})
+      fetch('http://projectsignalement.herokuapp.com/wb/userfront/token/'+token, {headers,method: 'DELETE',})
       .then((res)=>res.json())
       .then((res)=>{
       console.log(res)
@@ -46,7 +46,7 @@ export default function MyProfile() {
   //     console.log("huhu mandalo");
   //     const token=localStorage.getItem('token');
   //     //window.location.href="/";
-  //      alert("http://localhost:8080/wb/userfront/token/"+token+" ");
+  //      alert("http://projectsignalement.herokuapp.com/wb/userfront/token/"+token+" ");
   //     }
      
   

@@ -20,7 +20,7 @@ export default function Details() {
 	const region=1;
 
 	const getDetails= (ids,region) =>{
-		fetch('http://localhost:8080/wb/userfront/signalement/description?description=grave accident de&idregion='+region+'', {
+		fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/description?description=grave accident de&idregion='+region+'', {
 			headers:{
 			  "Authorization": "Bearer 5886640101472f810740c73b50f34d258f585a88"}
 			 })
@@ -63,7 +63,7 @@ export default function Details() {
 		
 // 		const region=1;
 // 		const description=this.setState({descri: this.id});
-// 		fetch('http://localhost:8080/wb/userfront/signalement/description?description=grave accident de&idregion='+region+'', {
+// 		fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/description?description=grave accident de&idregion='+region+'', {
 // 			headers:{
 // 			  "Authorization": "Bearer 7439134adf0568ce88e45c4f04d20e4dafc0531e"}
 // 			 })
@@ -91,7 +91,7 @@ export default function Details() {
 //   const headers={
 // 	'Authorization': 'Bearer 7439134adf0568ce88e45c4f04d20e4dafc0531e'
 //   };
-// 	  fetch('http://localhost:8080/wb/userfront/listetype', {headers})
+// 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 // 	  .then((res)=>res.json())
 // 	  .then((res)=>{
 // 		console.log(res)
@@ -108,7 +108,7 @@ export default function Details() {
 // 		const headers={
 // 			'Authorization': 'Bearer 7439134adf0568ce88e45c4f04d20e4dafc0531e'
 // 		  };
-// 	  fetch('http://localhost:8080/wb/userfront/region/7439134adf0568ce88e45c4f04d20e4dafc0531e/signalement', {headers})
+// 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/region/7439134adf0568ce88e45c4f04d20e4dafc0531e/signalement', {headers})
 // 	  .then((res)=>res.json())
 // 	  .then((res)=>{
 // 		console.log(res)

@@ -36,7 +36,7 @@ export default class Accueil extends React.Component {
   const headers={
 	'Authorization': 'Bearer af9675eed1ab2ef45b94f9a5d7e60ccd3338b8d4'
   };
-	  fetch('http://localhost:8080/wb/userfront/listetype', {headers})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -53,7 +53,7 @@ export default class Accueil extends React.Component {
 		const headers={
 			'Authorization': 'Bearer af9675eed1ab2ef45b94f9a5d7e60ccd3338b8d4'
 		  };
-	  fetch('http://localhost:8080/wb/userfront/region/af9675eed1ab2ef45b94f9a5d7e60ccd3338b8d4/signalement', {headers})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/region/af9675eed1ab2ef45b94f9a5d7e60ccd3338b8d4/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)

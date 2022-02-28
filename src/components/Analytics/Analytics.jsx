@@ -49,13 +49,13 @@ export default class Analytics extends React.Component {
 		this.setState({description:description});
 		this.getDetails(description);
 		this.getDetails2(description);
-		// alert("http://localhost:8080/wb/userfront/signalement/description?description="+description+"&idregion=1");
+		// alert("http://projectsignalement.herokuapp.com/wb/userfront/signalement/description?description="+description+"&idregion=1");
 	  }
 	  updateData(description){
 		this.getUpdate(description);
 		console.log("huhu mandalo");
 		window.location.href="/analytics";
-		 //alert("http://localhost:8080/wb/userfront/signalement/statut/"+description+"/1");
+		 //alert("http://projectsignalement.herokuapp.com/wb/userfront/signalement/statut/"+description+"/1");
 	  }
 
     getListeType()
@@ -65,7 +65,7 @@ export default class Analytics extends React.Component {
   const headers={
 	'Authorization': 'Bearer '+token
   };
-	  fetch('http://localhost:8080/wb/userfront/listetype', {headers})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -82,7 +82,7 @@ export default class Analytics extends React.Component {
 		const headers={
 			'Authorization': 'Bearer '+token
 		  };
-	  fetch('http://localhost:8080/wb/userfront/region/'+token+'/signalement', {headers})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/region/'+token+'/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -109,7 +109,7 @@ export default class Analytics extends React.Component {
 	getDetails(description){
 		const region=localStorage.getItem('idregion');
 		const token=localStorage.getItem('token');
-		fetch('http://localhost:8080/wb/userfront/signalement/description?description='+description+'&idregion='+region+'', {
+		fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/description?description='+description+'&idregion='+region+'', {
 			headers:{
 			  "Authorization": "Bearer "+token}
 			 })
@@ -133,7 +133,7 @@ export default class Analytics extends React.Component {
 	getDetails2(description){
 		const region=localStorage.getItem('idregion');
 		const token=localStorage.getItem('token');
-		fetch('http://localhost:8080/wb/userfront/signalement/description2?description='+description+'&idregion='+region+'', {
+		fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/description2?description='+description+'&idregion='+region+'', {
 			headers:{
 			  "Authorization": "Bearer "+token}
 			 })
@@ -163,7 +163,7 @@ export default class Analytics extends React.Component {
 		const headers={
 			'Authorization': 'Bearer '+token
 		  };
-	  fetch('http://localhost:8080/wb/userfront/signalement/statut/'+description+'/'+region, {headers,method: 'PUT',})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/statut/'+description+'/'+region, {headers,method: 'PUT',})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
@@ -179,7 +179,7 @@ export default class Analytics extends React.Component {
 		const headers={
 			'Authorization': 'Bearer '+token
 		  };
-	  fetch('http://localhost:8080/wb/userfront/token/'+token, {headers,method: 'DELETE',})
+	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/token/'+token, {headers,method: 'DELETE',})
 	  .then((res)=>res.json())
 	  .then((res)=>{
 		console.log(res)
