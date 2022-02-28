@@ -51,6 +51,9 @@ export default class Compaings extends React.Component {
 			 })
 		  .then((res)=>res.json())
 		  .then((res)=>{
+			if(!res.ok){
+				window.location.href="/login";
+			 }
 			console.log(res)
 			this.setState({dataDetails: res})
 		})
@@ -66,6 +69,9 @@ export default class Compaings extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  this.setState({dataType: res})
 	  })
@@ -83,6 +89,9 @@ export default class Compaings extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/region/'+token+'/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  this.setState({dataSignalement: res})
 	  })

@@ -136,6 +136,9 @@ class UserLogin extends React.Component{
         fetch('http://projectsignalement.herokuapp.com/region')
         .then((res)=>res.json())
         .then((res)=>{
+          if(!res.ok){
+            window.location.href="/login";
+           }
           let reg = res;
           this.setState({listeregion : reg});
           console.log(reg);

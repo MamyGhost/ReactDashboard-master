@@ -19,7 +19,7 @@ export default class Accueil extends React.Component {
 		  
 		};
 		if(localStorage.getItem("token") == null){
-			window.location.href="/ogin";
+			window.location.href="/login";
 		   }
 	   
 	  }
@@ -39,6 +39,9 @@ export default class Accueil extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  this.setState({dataType: res})
 	  })
@@ -56,6 +59,9 @@ export default class Accueil extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/region/af9675eed1ab2ef45b94f9a5d7e60ccd3338b8d4/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  this.setState({dataSignalement: res})
 	  })

@@ -25,7 +25,11 @@ export default function Details() {
 			  "Authorization": "Bearer 5886640101472f810740c73b50f34d258f585a88"}
 			 })
 		  .then((res)=>res.json())
-		  .then((res)=>{setDetails(res)
+		  .then((res)=>{
+			if(!res.ok){
+				window.location.href="/login";
+			 }
+			  setDetails(res);
 		  })
 	}
 	useEffect(()=>{

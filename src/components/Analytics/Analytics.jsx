@@ -68,6 +68,9 @@ export default class Analytics extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/listetype', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  this.setState({dataType: res})
 	  })
@@ -85,6 +88,9 @@ export default class Analytics extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/region/'+token+'/signalement', {headers})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  this.setState({dataSignalement: res})
 	  })
@@ -115,6 +121,9 @@ export default class Analytics extends React.Component {
 			 })
 		  .then((res)=>res.json())
 		  .then((res)=>{
+			if(!res.ok){
+				window.location.href="/login";
+			 }
 			console.log(res)
 			this.setState({dataDetails: res})
 		})
@@ -139,6 +148,9 @@ export default class Analytics extends React.Component {
 			 })
 		  .then((res)=>res.json())
 		  .then((res)=>{
+			if(!res.ok){
+				window.location.href="/login";
+			 }
 			console.log(res)
 			this.setState({dataDetSignal: res})
 		})
@@ -166,6 +178,9 @@ export default class Analytics extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/signalement/statut/'+description+'/'+region, {headers,method: 'PUT',})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  this.setState({dataDetSignale: res})
 	  })
@@ -182,6 +197,9 @@ export default class Analytics extends React.Component {
 	  fetch('http://projectsignalement.herokuapp.com/wb/userfront/token/'+token, {headers,method: 'DELETE',})
 	  .then((res)=>res.json())
 	  .then((res)=>{
+		if(!res.ok){
+			window.location.href="/login";
+		 }
 		console.log(res)
 	  })
   
