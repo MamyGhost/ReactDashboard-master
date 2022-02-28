@@ -223,8 +223,10 @@ render(){
 		if(projets1.photoList == null)
 		{
 			stockage = "https://static.pexels.com/photos/57905/pexels-photo-57905.jpeg";
+			console.log(stockage);
 		}else{
 			stockage =projets1.photoList[0].photo;
+			console.log(stockage);
 		}
 		return (
 			<div className="popUpModal">
