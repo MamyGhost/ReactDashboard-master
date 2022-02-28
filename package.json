@@ -19,16 +19,19 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "sass": "^1.44.0",
+    "serve": "^13.0.2",
     "web-vitals": "^1.1.2",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +52,5 @@
   "engines": {
     "node": "v14.17.5",
     "npm": "6.14.14"
-}
-  
+  }
 }
