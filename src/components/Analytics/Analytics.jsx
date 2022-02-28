@@ -54,7 +54,7 @@ export default class Analytics extends React.Component {
 	  updateData(description){
 		this.getUpdate(description);
 		console.log("huhu mandalo");
-		window.location.href="/analytics";
+		window.location.href="/accueil/analytics";
 		 //alert("http://projectsignalement.herokuapp.com/wb/userfront/signalement/statut/"+description+"/1");
 	  }
 
@@ -219,6 +219,13 @@ render(){
 		
 	});
 	const projects1 = this.state.dataDetails.map((projects1) =>{
+		let stockage = "";
+		if(projects1.photoList == null){
+			stockage = "https://static.pexels.com/photos/57905/pexels-photo-57905.jpeg";
+		}
+		else{
+			stockage = projects1.photoList[0].photo;
+		}
 		return (
 			<div className="popUpModal">
             
@@ -244,7 +251,7 @@ render(){
 			
                 </div>
                 <div className="photo">
-                  <img src="https://static.pexels.com/photos/57905/pexels-photo-57905.jpeg"/>
+                  <img src={stockage}/>
                 </div>
               </div>
             </section>

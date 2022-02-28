@@ -21,6 +21,7 @@ export default function MyProfile() {
     const test = () =>{
     //alert("test delete");
     GetDelete();
+    localStorage.removeItem('token');
     window.location.href="/";
   }
 
